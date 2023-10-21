@@ -31,6 +31,8 @@ Partial Class Form1
         Me.txtcourse = New System.Windows.Forms.TextBox()
         Me.txtlname = New System.Windows.Forms.TextBox()
         Me.txtfname = New System.Windows.Forms.TextBox()
+        Me.txtuserid = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -38,8 +40,7 @@ Partial Class Form1
         Me.txtstudcourse = New System.Windows.Forms.TextBox()
         Me.txtlast = New System.Windows.Forms.TextBox()
         Me.txtfirst = New System.Windows.Forms.TextBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.txtuserid = New System.Windows.Forms.TextBox()
+        Me.btnDesign = New System.Windows.Forms.Button()
         GroupBox1 = New System.Windows.Forms.GroupBox()
         GroupBox2 = New System.Windows.Forms.GroupBox()
         GroupBox1.SuspendLayout()
@@ -62,7 +63,7 @@ Partial Class Form1
         GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         GroupBox1.Name = "GroupBox1"
         GroupBox1.Padding = New System.Windows.Forms.Padding(4)
-        GroupBox1.Size = New System.Drawing.Size(441, 282)
+        GroupBox1.Size = New System.Drawing.Size(441, 456)
         GroupBox1.TabIndex = 0
         GroupBox1.TabStop = False
         GroupBox1.Text = "Save Record"
@@ -155,11 +156,31 @@ Partial Class Form1
         GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         GroupBox2.Name = "GroupBox2"
         GroupBox2.Padding = New System.Windows.Forms.Padding(4)
-        GroupBox2.Size = New System.Drawing.Size(441, 282)
+        GroupBox2.Size = New System.Drawing.Size(441, 456)
         GroupBox2.TabIndex = 1
         GroupBox2.TabStop = False
         GroupBox2.Text = "Save Record"
         AddHandler GroupBox2.Enter, AddressOf Me.GroupBox2_Enter
+        '
+        'txtuserid
+        '
+        Me.txtuserid.Location = New System.Drawing.Point(223, 41)
+        Me.txtuserid.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtuserid.Name = "txtuserid"
+        Me.txtuserid.Size = New System.Drawing.Size(148, 27)
+        Me.txtuserid.TabIndex = 8
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Script MT Bold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label7.Location = New System.Drawing.Point(91, 40)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(86, 19)
+        Me.Label7.TabIndex = 7
+        Me.Label7.Text = "Student ID:"
         '
         'Label4
         '
@@ -234,38 +255,29 @@ Partial Class Form1
         Me.txtfirst.Size = New System.Drawing.Size(148, 27)
         Me.txtfirst.TabIndex = 0
         '
-        'Label7
+        'btnDesign
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Script MT Bold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Label7.Location = New System.Drawing.Point(91, 40)
-        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(86, 19)
-        Me.Label7.TabIndex = 7
-        Me.Label7.Text = "Student ID:"
-        '
-        'txtuserid
-        '
-        Me.txtuserid.Location = New System.Drawing.Point(223, 41)
-        Me.txtuserid.Margin = New System.Windows.Forms.Padding(4)
-        Me.txtuserid.Name = "txtuserid"
-        Me.txtuserid.Size = New System.Drawing.Size(148, 27)
-        Me.txtuserid.TabIndex = 8
+        Me.btnDesign.AutoEllipsis = True
+        Me.btnDesign.Location = New System.Drawing.Point(469, 569)
+        Me.btnDesign.Name = "btnDesign"
+        Me.btnDesign.Size = New System.Drawing.Size(193, 43)
+        Me.btnDesign.TabIndex = 2
+        Me.btnDesign.Text = "Display by Course"
+        Me.btnDesign.UseVisualStyleBackColor = True
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 19.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1157, 487)
+        Me.ClientSize = New System.Drawing.Size(1157, 642)
+        Me.Controls.Add(Me.btnDesign)
         Me.Controls.Add(GroupBox2)
         Me.Controls.Add(GroupBox1)
         Me.Font = New System.Drawing.Font("Poor Richard", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Form1"
-        Me.Text = "Form1"
+        Me.Text = "b"
         GroupBox1.ResumeLayout(False)
         GroupBox1.PerformLayout()
         GroupBox2.ResumeLayout(False)
@@ -290,4 +302,5 @@ Partial Class Form1
     Friend WithEvents txtstudcourse As TextBox
     Friend WithEvents txtlast As TextBox
     Friend WithEvents txtfirst As TextBox
+    Friend WithEvents btnDesign As Button
 End Class

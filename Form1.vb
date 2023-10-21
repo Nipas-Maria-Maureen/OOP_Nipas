@@ -18,4 +18,9 @@
     Private Sub GroupBox2_Enter(sender As Object, e As EventArgs)
 
     End Sub
+
+    Private Sub btnDesign_Click(sender As Object, e As EventArgs) Handles btnDesign.Click
+        Form2.Show()
+        Me.Hide()
+    End Sub
 End Class

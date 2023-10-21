@@ -8,6 +8,8 @@ Module Module1
     Dim mysqlcmd As New MySqlCommand
     Dim host, uname, pwd, dbname As String
     Dim sqlquery As String
+    Dim dtTable As New DataTable
+    Dim adapter As New MySqlDataAdapter
 
     Public Sub ConnectDbase()
         host = "127.0.0.1"
@@ -82,5 +84,87 @@ Module Module1
         Finally
             Reader.Close()
         End Try
+    End Sub
+    Public Sub LoadAllData()
+        sqlquery = "SELECT * FROM student"
+        Try
+
+            adapter = New MySqlDataAdapter(sqlquery, con)
+            'display the record in your datagridview
+            dtTable = New DataTable
+            adapter.Fill(dtTable) 'pass the record from mysql to data table
+            With Form2.dgvdata
+                .DataSource = dtTable 'set the source of datagridview
+                .AutoResizeColumns()
+
+
+            End With
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            con.Close()
+        End Try
+
+
+
+
+    End Sub
+    Public Sub LoadCourse()
+        sqlquery = "select course from student"
+        Try
+            mysqlcmd = New MySqlCommand(sqlquery, con)
+            Reader = mysqlcmd.ExecuteReader
+            While Reader.Read
+                Form2.cbocourse.Items.Add(Reader("course").ToString)
+            End While
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            con.Close()
+        End Try
+
+    End Sub
+
+    Public Sub DisplayData()
+        sqlquery = "SELECT * FROM student"
+        Try
+
+            adapter = New MySqlDataAdapter(sqlquery, con)
+            'display the record in your datagridview
+            dtTable = New DataTable
+            adapter.Fill(dtTable) 'pass the record from mysql to data table
+            With Form2.dgvdata
+                .DataSource = dtTable 'set the source of datagridview
+                .AutoResizeColumns()
+
+
+            End With
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            con.Close()
+        End Try
+
+
+
+
+    End Sub
+    Public Sub DisplayData(kurso As String)
+        sqlquery = "SELECT * FROM student where course =  @kurso"
+        adapter = New MySqlDataAdapter(sqlquery, con)
+        adapter.SelectCommand.Parameters.AddWithValue("@kurso", kurso)
+
+        Try
+            mysqlcmd = New MySqlCommand(sqlquery, con)
+            Reader = mysqlcmd.ExecuteReader
+            While Reader.Read
+                Form2.cbocourse.Items.Add(Reader("course").ToString)
+            End While
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            con.Close()
+        End Try
+
     End Sub
 End Module
