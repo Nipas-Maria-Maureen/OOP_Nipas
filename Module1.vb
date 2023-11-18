@@ -76,6 +76,12 @@ Module Module1
                 Form1.txtfirst.text = Reader("studfname").ToString()
                 Form1.txtlast.text = Reader("studlname").ToString()
                 Form1.txtstudcourse.Text = Reader("course").ToString()
+                Form1.btndelete.Enabled = True
+                Form1.btnupdate.Enabled = True
+                Form1.txtfirst.Enabled = True
+                Form1.txtlast.Enabled = True
+                Form1.txtstudcourse.Enabled = True
+
             Else
                 MsgBox("No Record!")
             End If
@@ -167,4 +173,54 @@ Module Module1
         End Try
 
     End Sub
+
+    Public Sub UpdateRecord(studID As String, fname As String,
+                            lname As String, course As String)
+        sqlquery = "UPDATE studenbt set studFname = @fname,
+        studLname = @lname, course, = @course 
+        where studID = @studId"
+
+        Try
+            Using cmd As New MySqlCommand(sqlquery, con)
+                cmd.Parameters.AddWithValue("@fname", fname)
+                cmd.Parameters.AddWithValue("@lname", lname)
+                cmd.Parameters.AddWithValue("@couse", course)
+                cmd.Parameters.AddWithValue("@studID", studID)
+
+            End Using
+            MsgBox("UPDATE SUCCESSFULL!", vbInformation, "UPDATE MESSAGE")
+
+
+        Catch ex As Exception
+            MsgBox("Error:" & ex.Message, vbInformation, "Error Message")
+        Finally
+            Form1.txtfirst.Clear()
+            Form1.txtlast.Clear()
+            Form1.txtstudcourse.Clear()
+            Form1.txtuserid.Clear()
+        End Try
+    End Sub
+    Public Sub Delete(studID As String)
+        sqlquery = "DELETE from student where studID = @studId"
+
+        Try
+            Using cmd As New MySqlCommand(sqlquery, con)
+                cmd.Parameters.AddWithValue("@studID", studID)
+                cmd.ExecuteNonQuery()
+
+            End Using
+            MsgBox("DELETE SUCCESSFULL!", vbInformation, "DELETE MESSAGE")
+        Catch ex As Exception
+            MsgBox("Error:" & ex.Message, vbInformation, "Error Message")
+        Finally
+            Form1.txtfirst.Clear()
+            Form1.txtlast.Clear()
+            Form1.txtstudcourse.Clear()
+            Form1.txtuserid.Clear()
+        End Try
+
+
+    End Sub
+
+
 End Module

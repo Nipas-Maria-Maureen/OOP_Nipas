@@ -41,6 +41,8 @@ Partial Class Form1
         Me.txtlast = New System.Windows.Forms.TextBox()
         Me.txtfirst = New System.Windows.Forms.TextBox()
         Me.btnDesign = New System.Windows.Forms.Button()
+        Me.btnupdate = New System.Windows.Forms.Button()
+        Me.btndelete = New System.Windows.Forms.Button()
         GroupBox1 = New System.Windows.Forms.GroupBox()
         GroupBox2 = New System.Windows.Forms.GroupBox()
         GroupBox1.SuspendLayout()
@@ -141,6 +143,8 @@ Partial Class Form1
         'GroupBox2
         '
         GroupBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        GroupBox2.Controls.Add(Me.btnupdate)
+        GroupBox2.Controls.Add(Me.btndelete)
         GroupBox2.Controls.Add(Me.txtuserid)
         GroupBox2.Controls.Add(Me.Label7)
         GroupBox2.Controls.Add(Me.Label4)
@@ -258,12 +262,30 @@ Partial Class Form1
         'btnDesign
         '
         Me.btnDesign.AutoEllipsis = True
-        Me.btnDesign.Location = New System.Drawing.Point(469, 569)
+        Me.btnDesign.Location = New System.Drawing.Point(467, 576)
         Me.btnDesign.Name = "btnDesign"
         Me.btnDesign.Size = New System.Drawing.Size(193, 43)
         Me.btnDesign.TabIndex = 2
         Me.btnDesign.Text = "Display by Course"
         Me.btnDesign.UseVisualStyleBackColor = True
+        '
+        'btnupdate
+        '
+        Me.btnupdate.Location = New System.Drawing.Point(80, 359)
+        Me.btnupdate.Name = "btnupdate"
+        Me.btnupdate.Size = New System.Drawing.Size(86, 41)
+        Me.btnupdate.TabIndex = 3
+        Me.btnupdate.Text = "UPDATE"
+        Me.btnupdate.UseVisualStyleBackColor = True
+        '
+        'btndelete
+        '
+        Me.btndelete.Location = New System.Drawing.Point(250, 359)
+        Me.btndelete.Name = "btndelete"
+        Me.btndelete.Size = New System.Drawing.Size(109, 41)
+        Me.btndelete.TabIndex = 4
+        Me.btndelete.Text = "DELETE"
+        Me.btndelete.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -303,4 +325,6 @@ Partial Class Form1
     Friend WithEvents txtlast As TextBox
     Friend WithEvents txtfirst As TextBox
     Friend WithEvents btnDesign As Button
+    Friend WithEvents btnupdate As Button
+    Friend WithEvents btndelete As Button
 End Class
