@@ -6,13 +6,14 @@
         txtstudcourse.Enabled = False
         btnUpdate.Enabled = False
         btndelete.Enabled = False
+        btnprnt.Enabled = False
     End Sub
 
     Private Sub btnInsert_Click(sender As Object, e As EventArgs) Handles btnInsert.Click
         SaveRecord()
     End Sub
 
-    Private Sub btnsearch_Click(sender As Object, e As EventArgs) Handles btnsearch.Click
+    Private Sub btnsearch_Click(sender As Object, e As EventArgs) Handles btnsearch.Click, Button1.Click
         SearchData()
     End Sub
 
@@ -34,7 +35,7 @@
             MsgBox("Update successfull!")
         Else
             MsgBox("Update cancelled!")
-            
+
         End If
 
     End Sub
@@ -50,5 +51,14 @@
             MsgBox("Delete cancelled!")
 
         End If
+    End Sub
+
+    Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
+        Form3.Show()
+    End Sub
+
+    Private Sub btnprnt_Click(sender As Object, e As EventArgs) Handles btnprnt.Click
+        Form4.Show()
+
     End Sub
 End Class

@@ -31,6 +31,8 @@ Partial Class Form1
         Me.txtcourse = New System.Windows.Forms.TextBox()
         Me.txtlname = New System.Windows.Forms.TextBox()
         Me.txtfname = New System.Windows.Forms.TextBox()
+        Me.btnupdate = New System.Windows.Forms.Button()
+        Me.btndelete = New System.Windows.Forms.Button()
         Me.txtuserid = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -41,8 +43,9 @@ Partial Class Form1
         Me.txtlast = New System.Windows.Forms.TextBox()
         Me.txtfirst = New System.Windows.Forms.TextBox()
         Me.btnDesign = New System.Windows.Forms.Button()
-        Me.btnupdate = New System.Windows.Forms.Button()
-        Me.btndelete = New System.Windows.Forms.Button()
+        Me.btnPrint = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnprnt = New System.Windows.Forms.Button()
         GroupBox1 = New System.Windows.Forms.GroupBox()
         GroupBox2 = New System.Windows.Forms.GroupBox()
         GroupBox1.SuspendLayout()
@@ -143,6 +146,7 @@ Partial Class Form1
         'GroupBox2
         '
         GroupBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        GroupBox2.Controls.Add(Me.btnprnt)
         GroupBox2.Controls.Add(Me.btnupdate)
         GroupBox2.Controls.Add(Me.btndelete)
         GroupBox2.Controls.Add(Me.txtuserid)
@@ -150,6 +154,7 @@ Partial Class Form1
         GroupBox2.Controls.Add(Me.Label4)
         GroupBox2.Controls.Add(Me.Label5)
         GroupBox2.Controls.Add(Me.Label6)
+        GroupBox2.Controls.Add(Me.Button1)
         GroupBox2.Controls.Add(Me.btnsearch)
         GroupBox2.Controls.Add(Me.txtstudcourse)
         GroupBox2.Controls.Add(Me.txtlast)
@@ -165,6 +170,24 @@ Partial Class Form1
         GroupBox2.TabStop = False
         GroupBox2.Text = "Save Record"
         AddHandler GroupBox2.Enter, AddressOf Me.GroupBox2_Enter
+        '
+        'btnupdate
+        '
+        Me.btnupdate.Location = New System.Drawing.Point(91, 359)
+        Me.btnupdate.Name = "btnupdate"
+        Me.btnupdate.Size = New System.Drawing.Size(86, 41)
+        Me.btnupdate.TabIndex = 3
+        Me.btnupdate.Text = "UPDATE"
+        Me.btnupdate.UseVisualStyleBackColor = True
+        '
+        'btndelete
+        '
+        Me.btndelete.Location = New System.Drawing.Point(250, 359)
+        Me.btndelete.Name = "btndelete"
+        Me.btndelete.Size = New System.Drawing.Size(109, 41)
+        Me.btndelete.TabIndex = 4
+        Me.btndelete.Text = "DELETE"
+        Me.btndelete.UseVisualStyleBackColor = True
         '
         'txtuserid
         '
@@ -224,7 +247,7 @@ Partial Class Form1
         '
         'btnsearch
         '
-        Me.btnsearch.Location = New System.Drawing.Point(213, 230)
+        Me.btnsearch.Location = New System.Drawing.Point(223, 230)
         Me.btnsearch.Margin = New System.Windows.Forms.Padding(4)
         Me.btnsearch.Name = "btnsearch"
         Me.btnsearch.Size = New System.Drawing.Size(171, 30)
@@ -262,30 +285,40 @@ Partial Class Form1
         'btnDesign
         '
         Me.btnDesign.AutoEllipsis = True
-        Me.btnDesign.Location = New System.Drawing.Point(467, 576)
+        Me.btnDesign.Location = New System.Drawing.Point(103, 550)
         Me.btnDesign.Name = "btnDesign"
         Me.btnDesign.Size = New System.Drawing.Size(193, 43)
         Me.btnDesign.TabIndex = 2
         Me.btnDesign.Text = "Display by Course"
         Me.btnDesign.UseVisualStyleBackColor = True
         '
-        'btnupdate
+        'btnPrint
         '
-        Me.btnupdate.Location = New System.Drawing.Point(80, 359)
-        Me.btnupdate.Name = "btnupdate"
-        Me.btnupdate.Size = New System.Drawing.Size(86, 41)
-        Me.btnupdate.TabIndex = 3
-        Me.btnupdate.Text = "UPDATE"
-        Me.btnupdate.UseVisualStyleBackColor = True
+        Me.btnPrint.Location = New System.Drawing.Point(351, 550)
+        Me.btnPrint.Name = "btnPrint"
+        Me.btnPrint.Size = New System.Drawing.Size(177, 43)
+        Me.btnPrint.TabIndex = 3
+        Me.btnPrint.Text = "Print Master Liust"
+        Me.btnPrint.UseVisualStyleBackColor = True
         '
-        'btndelete
+        'Button1
         '
-        Me.btndelete.Location = New System.Drawing.Point(250, 359)
-        Me.btndelete.Name = "btndelete"
-        Me.btndelete.Size = New System.Drawing.Size(109, 41)
-        Me.btndelete.TabIndex = 4
-        Me.btndelete.Text = "DELETE"
-        Me.btndelete.UseVisualStyleBackColor = True
+        Me.Button1.Location = New System.Drawing.Point(223, 230)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(171, 30)
+        Me.Button1.TabIndex = 3
+        Me.Button1.Text = "Search"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'btnprnt
+        '
+        Me.btnprnt.Location = New System.Drawing.Point(69, 267)
+        Me.btnprnt.Name = "btnprnt"
+        Me.btnprnt.Size = New System.Drawing.Size(126, 33)
+        Me.btnprnt.TabIndex = 9
+        Me.btnprnt.Text = "Print"
+        Me.btnprnt.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -293,6 +326,7 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1157, 642)
+        Me.Controls.Add(Me.btnPrint)
         Me.Controls.Add(Me.btnDesign)
         Me.Controls.Add(GroupBox2)
         Me.Controls.Add(GroupBox1)
@@ -327,4 +361,7 @@ Partial Class Form1
     Friend WithEvents btnDesign As Button
     Friend WithEvents btnupdate As Button
     Friend WithEvents btndelete As Button
+    Friend WithEvents btnPrint As Button
+    Friend WithEvents btnprnt As Button
+    Friend WithEvents Button1 As Button
 End Class
